@@ -1,20 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QMessageBox>
-#include<LinkedList/linked_list.h>
+
 void MainWindow::set_dropdown_values(QString db_column,QString db_table)
 {
     ui->label_connection_status->clear();
     //QSqlDatabase db = QSqlDatabase::addDatabase("QODBC") ;
     db = QSqlDatabase::addDatabase("QSQLITE") ;
     //QString dsn = QString("Data Source=MOHAB;Initial Catalog=SA_Visualizer;Integrated Security=True");
-    QString dsn = QString("G:/Projects/QtProjects/DSA_Visualizer/SQLite/DSA_Visualizer.db");
+    QString dsn = QString("./SQLite/DSA_Visualizer.db");
     db.setDatabaseName(dsn);
     QString connection_status;
     if(db.open())
     {
        connection_status="opened!\n";
-       //db.close();
     }
     else
     {
@@ -54,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    //db.close();
+    db.close();
     delete ui;
 }
 

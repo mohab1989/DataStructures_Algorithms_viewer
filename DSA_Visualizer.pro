@@ -14,12 +14,11 @@ TEMPLATE = app
 
 SOURCES +=\
         mainwindow.cpp \
-    LinkedList/linked_list.cpp \
-    create_dsa.cpp
+    create_dsa.cpp \
+    mian.cpp
 
 
 HEADERS  += mainwindow.h \
-    LinkedList/linked_list.h \
     create_dsa.h
 
 
